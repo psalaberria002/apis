@@ -7,7 +7,7 @@ The project is very close to the goal, but I have an odd issue that I am hoping 
 ## STATUS
 At this time, everything is working except that when I try to generate Go files from protobuf files, Bazel is not able to find a dependency.  I have not been able to resolve this issue, yet.
 
-Steps to reproduce:
+## STEPS TO REPRODUCE
 1) bazel clean --expunge --async
 2) bazel query "//..."
    //:gazelle
