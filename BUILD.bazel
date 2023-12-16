@@ -1,8 +1,7 @@
-load("@bazel_gazelle//:def.bzl", "gazelle")  #
+load("@gazelle//:def.bzl", "gazelle")  #
 #load("@buildifier_prebuilt//:rules.bzl", "buildifier")
 
-### gazelle:prefix github.com/abitofhelp/apis
-# gazelle:exclude bazel-*
+### gazelle:prefix github.com/abitofhelp/apis# gazelle:exclude bazel-*
 # gazelle:exclude binding
 # gazelle:exclude deployment
 # gazelle:exclude dist
