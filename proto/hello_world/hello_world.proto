@@ -5,8 +5,6 @@ package hello_world;
 import "google/api/annotations.proto";
 import "google/protobuf/timestamp.proto";
 
-//option go_package = "github.com/abitofhelp/apis/src/go";
-
 // The greeting service definition
 service Greeter {
   // Sends a greeting

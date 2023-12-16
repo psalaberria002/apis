@@ -7,9 +7,8 @@ proto_library(
     srcs = ["hello_world.proto"],
     visibility = ["//visibility:public"],
     deps = [
-        #"//google/api:annotations_proto",
-        "@googleapis//google/api:annotations_proto",
         "@com_google_protobuf//:timestamp_proto",
+        "@googleapis//google/api:annotations_proto",
     ],
 )
 
@@ -19,11 +18,11 @@ go_proto_library(
     importpath = "github.com/abitofhelp/apis/proto/hello_world",
     proto = ":hello_world_proto",
     visibility = ["//visibility:public"],
-    #deps = ["//google/api:annotations_proto"],
+    deps = [],
 )
 
 go_library(
-    name = "hello_world",
+    name = "hello_world_lib",
     embed = [":hello_world_go_proto"],
     importpath = "github.com/abitofhelp/apis/proto/hello_world",
     visibility = ["//visibility:public"],

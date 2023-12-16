@@ -1,6 +1,6 @@
 module(
     name = "apis",
-    version = "5.5.0-rc1",
+    version = "1.0.0",
     compatibility_level = 1,
 )
 
@@ -32,30 +32,3 @@ use_repo(
     "org_golang_google_genproto_googleapis_api",
     "org_golang_google_protobuf",
 )
-
-#git_override(
-#    module_name = "gazelle",
-#    remote = "https://github.com/bazelbuild/bazel-gazelle.git",
-#    commit = "850e219",
-#    patches = ["gazelle_for_googleapis.patch"],
-#)
-
-#GOOGLE_APIS_VERSION = "64926d52febbf298cb82a8f472ade4a3969ba922"
-#
-#bazel_dep(name = "com_google_googleapis", version = GOOGLE_APIS_VERSION)
-#archive_override(
-#    module_name = "com_google_googleapis",
-#    integrity = "sha256-nRqTDnZ8k8glOYuPhpLso/41O5qq3t+88fyiKCyF34g=",
-#    patch_strip = 1,
-#    patches = [
-#        "add_bzlmod_support.patch"
-#    ],
-#    strip_prefix = "googleapis-" + GOOGLE_APIS_VERSION,
-#    urls = [
-#        "https://github.com/googleapis/googleapis/archive/%s.zip" % GOOGLE_APIS_VERSION
-#    ],
-#)
-#
-#switched_rules = use_extension("@com_google_googleapis//:extensions.bzl", "switched_rules")
-#switched_rules.use_languages()
-#use_repo(switched_rules, "com_google_googleapis_imports")
