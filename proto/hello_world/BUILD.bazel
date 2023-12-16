@@ -1,6 +1,10 @@
 load("@rules_go//proto:def.bzl", "go_proto_library")
 load("@rules_proto//proto:defs.bzl", "proto_library")
 
+# rules_proto:
+#  Define a library with a protocol buffer, which may be used from multiple languages.
+#  Building a proto_library creates a file named xxxxx-descriptor-set.proto.bin,
+#  which is the descriptor set for the messages the rule srcs
 proto_library(
     name = "hello_world_proto",
     srcs = ["hello_world.proto"],
@@ -11,11 +15,23 @@ proto_library(
     ],
 )
 
+# rules_go:
+#  Generates a set of .go files from a set of .proto files that are specified in a proto_library rule.
+#  The .go files are added to a Go library.
 go_proto_library(
     name = "hello_world_go_proto",
     compilers = ["@rules_go//proto:go_grpc"],
     importpath = "github.com/abitofhelp/apis/proto/hello_world",
     proto = ":hello_world_proto",
     visibility = ["//visibility:public"],
-    #deps = [],
+    deps = [],
+)
+
+# rules_go:
+#  Builds a Go library from a set of source files that are in the same package.
+go_library(
+    name = "go_default_library",
+    embed = [":hello_world_go_proto"],
+    importpath = "github.com/abitofhelp/apis/proto/hello_world",
+    visibility = ["//visibility:public"],
 )
